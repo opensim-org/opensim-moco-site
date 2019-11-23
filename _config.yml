@@ -28,10 +28,41 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: OpenSimSU
 github_username:  opensim-org
 
+timezone: America/Los_Angeles
+collections:
+  docs:
+    permalink: "/:collection/:path/"
+    output: true
+  posts:
+    permalink: "/news/:year/:month/:day/:title/"
+    output: true
+  tutorials:
+    output: true
+defaults:
+  - scope:
+      path: _docs
+      type: docs
+    values:
+      layout: docs
+  - scope:
+      path: _posts
+      type: posts
+    values:
+      layout: news_item
+      image: "/img/twitter-card.png"
+sass:
+  style: compressed
+
 # Build settings
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-avatar
+
+exclude:
+  - ".gitignore"
+  - CNAME
+  - icomoon-selection.json
 
 # Exclude from processing.
 # The following items will not be processed, by default.
