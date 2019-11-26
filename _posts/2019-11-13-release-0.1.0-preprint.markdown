@@ -1,0 +1,11 @@
+---
+title:  "Release 0.1.0-preprint"
+author: chrisdembia
+version: 0.1.0-preprint
+categories: [release]
+---
+This is the initial release of OpenSim Moco, and is the version of Moco used to
+generate results for the [bioRxiv preprint on
+Moco](https://www.biorxiv.org/content/10.1101/839381v1).
+
+Download this release from [SimTK](https://simtk.org/frs/?group_id=1815).
