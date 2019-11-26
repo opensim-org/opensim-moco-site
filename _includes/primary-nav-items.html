@@ -6,10 +6,10 @@
     <a href="https://simtk.org/frs/?group_id=1815">Download</a>
   </li>
   <li class="{% if page.url contains '/docs/' %}current{% endif %}">
-    <a href="/docs/">Documentation</a>
+      <a href="{{ 'docs' | relative_url }}">Documentation</a>
   </li>
   <li class="{% if page.author %}current{% endif %}">
-    <a href="/blog/">Blog</a>
+      <a href="{{ 'blog' | relative_url }}">Blog</a>
   </li>
   <li class="{% if page.url contains 'simtk' %}current{% endif %}">
     <a href="https://simtk.org/plugins/phpBB/indexPhpbb.php?group_id=1815&pluginname=phpBB">Forum</a>
