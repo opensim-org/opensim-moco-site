@@ -2,10 +2,18 @@
   <li class="{% if page.overview %}current{% endif %}">
     <a href="/">Home</a>
   </li>
+  <li class="{% if page.url contains 'simtk' %}current{% endif %}">
+    <a href="https://simtk.org/frs/?group_id=1815">Download</a>
+  </li>
   <li class="{% if page.url contains '/docs/' %}current{% endif %}">
-    <a href="/home/">Documentation</a>
+    <a href="/docs/">Documentation</a>
   </li>
   <li class="{% if page.author %}current{% endif %}">
     <a href="/blog/">Blog</a>
   </li>
+  <li class="{% if page.url contains 'simtk' %}current{% endif %}">
+    <a href="https://simtk.org/plugins/phpBB/indexPhpbb.php?group_id=1815&pluginname=phpBB">Forum</a>
+  </li>
 </ul>
+
+
