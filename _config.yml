@@ -23,8 +23,8 @@ description: >- # this means to ignore newlines until "baseurl:"
   Moco optimizes the motion and control of OpenSim muscle-driven skeletal
   models. This site provides documentation and a blog with news, descriptions
   of new releases, examples, and ways to obtain support for Moco.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://chrisdembia.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/opensim-moco-site" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: OpenSimSU
 github_username:  opensim-org
 
