@@ -2,10 +2,10 @@
   <aside>
     <ul>
       <li class="{% if page.title == 'Blog' %}current{% endif %}">
-        <a href="/blog/">All Posts</a>
+          <a href="{{ '/blog/' | relative_url }}">All Posts</a>
       </li>
       <li class="{% if page.title == 'Releases' %}current{% endif %}">
-        <a href="/blog/releases/">Releases</a>
+          <a href="{{ '/blog/releases/' | relative_url }}">Releases</a>
       </li>
     </ul>
     <h4>Recent Releases</h4>
