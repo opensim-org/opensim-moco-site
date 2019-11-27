@@ -1,13 +1,12 @@
----
-layout: default
----
+{% include top.html %}
 
-  <section class="docs">
-    <div class="grid">
+<body class="wrap">
+  {% include header.html %}
 
-        <iframe src="/docs/staging/index.html"></iframe>
+  {{ content }}
 
-      <div class="clear"></div>
-
-    </div>
-  </section>
+  {% include anchor_links.html %}
+  {% include analytics.html %}
+  {% include search/script.html %}
+</body>
+</html>
