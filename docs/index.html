@@ -8,13 +8,13 @@ permalink: /docs/
 <select NAME="options"
         ONCHANGE="document.getElementById('doxygen').src =
         this.options[this.selectedIndex].value">
-    <option value="/docs/latest">latest</option>
-    <option value="/docs/0.1.0-preprint">0.1.0-preprint</option>
+    <option value="{{ '/docs/latest' | relative_url }}">latest</option>
+    <option value="{{ '/docs/0.1.0-preprint' | relative_url }}">0.1.0-preprint</option>
 </select>
 </div>
 
 <div style="margin-top: 80px; position: absolute; top: 0px; left: 0px; right:
     0px; bottom: 0px; overflow:hidden">
     <iframe name="doxygen" id="doxygen" frameborder="0" style="position:relative; top: -56px; left: 0; width: 100%; height:100%;"
-                        src="/docs/latest"></iframe>
+            src="{{ '/docs/latest' | relative_url }}"></iframe>
 </div>
