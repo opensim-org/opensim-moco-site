@@ -1,0 +1,36 @@
+---
+title:  "Release 0.2.0"
+author: chrisdembia
+version: 0.2.0
+categories: [release]
+---
+This release contains a MATLAB version of Moco's 2D predictive simulation of
+walking, contributed by Brian Umberger, and examples in MATLAB, Python, and C++
+for using the MocoInverse tool. Lastly, we added examples for creating a custom
+goal in C++; see exampleSlidingMassAdvanced.cpp and
+exampleMocoCustomEffortGoal.
+
+To easily plot a solution in MATLAB, we introduced the
+osimMocoTrajectoryReport.m utility.
+
+We updated the versions of Simbody and OpenSim that we bundle with Moco. As a
+result, this release contains a fix for the simbody-visualizer for macOS
+Catalina, and contains OpenSim's support for IMUs.
+
+This release contains the following new modules:
+- MocoOutputGoal, for minimizing any scalar output of a model.
+- MocoFrameDistanceConstraint, to constrain the distances between frames in the model.
+- MocoAngularVelocityTrackingGoal and MocoAccelerationTrackingGoal, added in
+  anticipation of supporting IMU data in the future.
+
+We made minor changes to various parts of Moco's interface; you may have to
+make small changes to your code to use this release. For example, converting
+muscles from Millard2012EquilibriumMuscle to DeGrooteFregly2016Muscle now
+preserves the fiber damping property, while previously we set fiber damping to
+0 during this conversion. To set fiber damping to zero, you can use
+ModOpFiberDampingDGF.
+
+More details about this release are in the [CHANGELOG.md
+file](https://github.com/opensim-org/opensim-moco/blob/0.2.0/CHANGELOG.md).
+
+Download this release from [SimTK](https://simtk.org/frs/?group_id=1815).
