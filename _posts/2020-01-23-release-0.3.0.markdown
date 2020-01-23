@@ -1,0 +1,33 @@
+---
+title:  "Release 0.3.0"
+author: nickbianco
+version: 0.3.0
+categories: [release]
+---
+Two major additions are included in this release: reporting
+the breakdown of solution objective terms and contact force tracking.
+
+When using MocoCasADiSolver, MocoSolution now provides a breakdown of
+the terms in the objective. The portions of the total objective for all
+terms (including their weights) can be accessed by the methods
+getObjectiveTerm() and getObjectiveTermByIndex() on MocoSolution, and
+are also printed to the command line or console window upon arriving at
+a solution.
+
+MocoContactTrackingGoal was added, allowing minimization of error
+between model compliant contact forces and experimentally measured
+contact force data. Currently, this goal does not track torques or
+centers of pressure, and only supports the SmoothSphereHalfSpaceForce
+contact element included with Moco.
+
+Other minor changes in this release include renaming exampleSitToStand
+to exampleSquatToStand, moving the bisection root solver in
+DeGrooteFregly2016Muscle to a dedicated utility in MocoUtilities, and
+a bug fix in the report.py report generation tool related to the
+STOFileAdapter no longer have a read() method due to a recent change
+in OpenSim's API.
+
+These changes, and changes from previous releases, are reflected in the
+[CHANGELOG.md file](https://github.com/opensim-org/opensim-moco/blob/0.3.0/CHANGELOG.md).
+
+Download this release from [SimTK](https://simtk.org/frs/?group_id=1815).
