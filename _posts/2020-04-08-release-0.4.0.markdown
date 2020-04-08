@@ -1,0 +1,37 @@
+---
+title:  "Release 0.4.0"
+author: nickbianco
+version: 0.4.0
+categories: [release]
+---
+This release uses an updated version of opensim-core that includes 
+SmoothSphereHalfSpaceForce, which has now been removed from the Moco codebase. 
+The interface to this class has been updated to use OpenSim’s ContactSphere and 
+ContactHalfSpace classes, so your models must be updated in order to continue 
+using this component. You can refer to the gait model included with 
+example2DWalking for the correct XML syntax and view a file diff of the changes 
+here: https://github.com/opensim-org/opensim-moco/commit/ccd39f82acba5f23ebc3423eb40d2197d6d41d8b#diff-eb627df1f2a265a84a30b7c6b4f92999.
+
+Contact tracking was added as an option to example2Dwalking, and 
+MocoContactTrackingGoal was updated to support contact spheres distributed 
+across multiple bodies. MocoControlTrackingGoal was updated to more easily 
+associate controls to reference data, as demonstrated by a new electromyography 
+tracking option added to exampleMocoInverse.  A “projection” setting was added 
+to MocoFrameDistanceConstraint to provide more flexibility in posing this 
+constraint. 
+
+DeGrooteFregly2016Muscle's passive force multiplier now has a stiffness 
+parameter. To support this change, the curve was tweaked slightly. This may have 
+a minor effect on solutions relying on passive fiber forces. The maximum 
+difference between the new and old passive force-length curves is 0.07 
+(unitless).
+ 
+Finally, we’ve included various bug fixes in this release:
+- Fixed a bug where MocoPeriodicityGoal incorrectly specified control constraints
+- Fixed an error that occurs when using ModOpRemoveMuscles
+- Fixed some default pelvis and lumbar parameters in createPeriodicTrajectory() 
+- Added some missing MATLAB and Python commands to the bindings
+
+More details about this release are in the [CHANGELOG.md file](https://github.com/opensim-org/opensim-moco/blob/0.4.0/CHANGELOG.md).
+
+Download this release from [SimTK](https://simtk.org/frs/?group_id=1815).
