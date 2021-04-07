@@ -11,6 +11,11 @@ the last release, but the time spent unifying the Moco and OpenSim codes will
 ensure long term stability for the Moco project and will allow for faster 
 development cycles going forward.
 
+Thanks to those who have been active contributors to the Moco forum! Even 
+though Moco releases will now be included with OpenSim releases posted on the 
+main OpenSim SimTK page, the Moco SimTK forum will remain the main hub for all 
+Moco related discussion.
+
 In this release we’ve added the component Bhargava2004SmoothedMuscleMetabolics, 
 a smoothed implementation of the Bhargava et al. (2004) metabolics model 
 designed for gradient-based optimization (contributed by Antoine Falisse). With
