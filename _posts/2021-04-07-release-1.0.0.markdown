@@ -1,0 +1,20 @@
+---
+title:  "Release 1.0.0"
+author: nickbianco
+version: 1.0.0
+categories: [release]
+---
+Per the recent announcement from Jen Hicks, the newest version of Moco has been released along with OpenSim 4.2! Since Moco is now merged into the core OpenSim codebase, we’re calling this release Moco 1.0.0. It’s been a long wait since the last release, but the time spent unifying the Moco and OpenSim codes will ensure long term stability for the Moco project and will allow for faster development cycles going forward.
+
+In this release we’ve added the component Bhargava2004SmoothedMuscleMetabolics, a smoothed implementation of the Bhargava et al. (2004) metabolics model designed for gradient  based optimization (contributed by Antoine Falisse). With this component and MocoOutputGoal, you can now include metabolic cost terms in the objective function. Refer to [example2DWalkingMetabolics](https://github.com/opensim-org/opensim-core/blob/master/OpenSim/Examples/Moco/example2DWalking/example2DWalkingMetabolics.cpp) to see how to use this component in your MocoProblems.
+
+We’ve fixed two major bugs related to muscle wrapping where 1) ModOpReplaceMusclesWithDeGrooteFregly2016 did not copy over the original muscle’s PathWrapSet and 2) muscle wrapping wasn’t thread-safe, which disallowed parallelization with MocoCasADiSolver. Muscle wrapping should now work seamlessly without needing to change how your construct your models with ModelProcessor.
+ 
+We’ve included various small updates in this release. The analyze() utility function has been split into a new analyze() function that takes a StatesTrajectory and an analyzeMocoTrajectory() function that takes a MocoTrajectory. TableProcessor no longer automatically converts tables from degrees to radians; use TableProcessor::processAndConvertToRadians() or TabOpConvertDegreesToRadians instead. An Exception is now thrown if the model includes joints whose generalized speeds do not match the derivative of the generalized coordinates (i.e., BallJoint, FreeJoint, EllipsoidJoint, and ScapulothoracicJoint) since Moco does not support these joint types yet.
+
+Finally, the Moco paper has been published in PLOS Computational Biology! [Read the paper here](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008493). 
+
+More details about this release are in the [CHANGELOG.md](https://github.com/opensim-org/opensim-core/blob/master/CHANGELOG.md) and [CHANGELOG_MOCO.md](https://github.com/opensim-org/opensim-core/blob/master/CHANGELOG_MOCO.md) files.
+
+Get Moco 1.0.0 by downloading the [OpenSim 4.2 release from SimTK](https://simtk.org/frs/?group_id=91).
+
