@@ -61,6 +61,7 @@ exclude:
   - CNAME
   - icomoon-selection.json
 
+# Google Analytics
 google_analytics: G-46TV3BCX00
 
 # Exclude from processing.
