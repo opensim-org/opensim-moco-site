@@ -10,12 +10,12 @@ new features to help you answer a broader set of research questions.
 
 The examples [exampleIMUTracking](https://github.com/opensim-org/opensim-core/tree/master/Bindings/Java/Matlab/examples/Moco/exampleSquatToStand/exampleIMUTracking)
 and [exampleEMGTracking](https://github.com/opensim-org/opensim-core/tree/master/Bindings/Java/Matlab/examples/Moco/exampleEMGTracking)
-were added for recent 2021 meeting of the Technical Group on Computer Simulation (TGCS). The first  
+were added for the recent 2021 meeting of the Technical Group on Computer Simulation (TGCS). The first  
 example demonstrates how to create a set of synthetic accelerometer signals from a squat-to-stand
 motion, and then track these signals to reconstruct the original trajectory; this example is a 
 great starting point for incorporating signals from inertial measurement units in your simulations.
 The second example demonstrates how to solve the muscle redundancy problem using MocoInverse while
-tracking electromyography signals. This example includes a new feature that allows you optimize 
+tracking electromyography signals. This example includes a new feature that allows you to optimize 
 scale factors that allow you to track the shape of the reference EMG signals while scaling their
 magnitudes.
 
