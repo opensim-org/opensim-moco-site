@@ -1,0 +1,35 @@
+---
+title:  "Release 1.1.0"
+author: nickbianco
+version: 1.1.0
+categories: [release]
+---
+OpenSim 4.3 was officially released a few weeks ago, and included is the latest
+Moco release, version 1.1.0. This release includes a variety of new examples and
+new features to help you answer a broader set of research questions.
+
+The examples [exampleIMUTracking](https://github.com/opensim-org/opensim-core/tree/master/Bindings/Java/Matlab/examples/Moco/exampleSquatToStand/exampleIMUTracking)
+and [exampleEMGTracking](https://github.com/opensim-org/opensim-core/tree/master/Bindings/Java/Matlab/examples/Moco/exampleEMGTracking)
+were added for recent 2021 meeting of the Technical Group on Computer Simulation (TGCS). The first  
+example demonstrates how to create a set of synthetic accelerometer signals from a squat-to-stand
+motion, and then track these signals to reconstruct the original trajectory; this example is a 
+great starting point for incorporating signals from inertial measurement units in your simulations.
+The second example demonstrates how to solve the muscle redundancy problem using MocoInverse while
+tracking electromyography signals. This example includes a new feature that allows you optimize 
+scale factors that allow you to track the shape of the reference EMG signals while scaling their
+magnitudes.
+
+Two user-contributed examples that expand the popular example2DWalking are featured in this 
+release. A Matlab version of [example2DWalkingMetabolics](https://github.com/opensim-org/opensim-core/blob/master/Bindings/Java/Matlab/examples/Moco/example2DWalking/example2DWalkingMetabolics.m), 
+contributed by Brian Umberger, has been included to make it easier to get started minimizing 
+metabolic cost in a predictive simulation. Russell Johnson contributed [example2DWalkingStepAsymmetry](https://github.com/opensim-org/opensim-core/blob/master/Bindings/Java/Matlab/examples/Moco/example2DWalking/example2DWalkingStepAsymmetry.m) which demonstrates how to predict an asymmetric walking pattern
+with Moco. This example features the new goals MocoStepTimeAsymmetryGoal and MocoStepLengthAsymmetryGoal
+which allow you to target specified step time asymmetry and step length asymmetry values with
+terms in the cost function.
+
+Get Moco 1.1.0 by downloading the [OpenSim 4.3 release from SimTK](https://simtk.org/frs/?group_id=91).
+
+More details about this release are in the [CHANGELOG.md](https://github.com/opensim-org/opensim-core/blob/master/CHANGELOG.md) 
+and [CHANGELOG_MOCO.md](https://github.com/opensim-org/opensim-core/blob/master/CHANGELOG_MOCO.md) files.
+
+[Read the Moco paper here](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008493). 
