@@ -13,26 +13,26 @@ updates to MocoOutputGoal along with some other additions and bug fixes.
 In OpenSim, [Output](https://simtk.org/api_docs/opensim/api_docs44/classOpenSim_1_1Output.html)s allow 
 you to query values from a Model that are calculated from a State object. We created 
 MocoOutputGoal to make it easier to build custom cost functions in Moco that depend on Output
-values. We've updated MocoOutputGoal to now support not only scalar Output types, but also Vec3 and
+values. In Moco 1.2.0, we've updated MocoOutputGoal to now support not only scalar Output types, but also Vec3 and
 SpatialVec types, which covers the majority of Outputs offered by OpenSim Components. We've also
-added new MocoGoals which allow to minimize an Output at the beginning of a trajectory (MocoInitialOutputGoal),
+added new MocoGoals which allow you to minimize an Output at the beginning of a trajectory (MocoInitialOutputGoal),
 an Output at the end of a trajectory (MocoFinalOutputGoal), the error between initial and final 
 Output values (MocoOutputPeriodicityGoal), and the error between an Output and a user-provided
-trajectory (MocoOutputTrackingGoal). In addition, we added MocoOutputConstraint to all you to
-include Output values in a path constraint in your problem. Many users have requested more 
+trajectory (MocoOutputTrackingGoal). In addition, we added MocoOutputConstraint to allow you to
+include Output values in a path constraint in your problems. Many users have requested more 
 flexibility in building cost functions in Moco, and these new Output-based goals will give you
 many more options to do so. 
 
-Other updates include a fixes for MocoAngularVelocityTrackingGoal and MocoOrientationTrackingGoal,
+Other updates include fixes for MocoAngularVelocityTrackingGoal and MocoOrientationTrackingGoal,
 which were not properly supported in Matlab and Python. We fixed a bug that was breaking marker
 tracking problems when using 'setMarkersReferenceFromTRC()' in MocoTrack. We fixed a bug where 
 calculations from MocoStudy's 'analyze()' were incorrect because DeGrooteFregly2016Muscle auxiliary 
-variables were not properly included. Finally, implemented fix for DeGrooteFregly2016Muscle so that 
+variables were not properly included. Finally, we implemented a fix for DeGrooteFregly2016Muscle so that 
 optimal fiber lengths and tendon slack lengths are scaled when using the ScaleTool. 
 
 Get Moco 1.2.0 by downloading the [OpenSim 4.4 release from SimTK](https://simtk.org/frs/?group_id=91).
 
-More details about this release are in the [CHANGELOG.md](https://github.com/opensim-org/opensim-core/blob/master/CHANGELOG.md) 
+More details about this release can be foudn in the [CHANGELOG.md](https://github.com/opensim-org/opensim-core/blob/master/CHANGELOG.md) 
 and [CHANGELOG_MOCO.md](https://github.com/opensim-org/opensim-core/blob/master/CHANGELOG_MOCO.md) files.
 
 [Read the Moco paper here](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008493). 
