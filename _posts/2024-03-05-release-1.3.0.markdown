@@ -5,11 +5,44 @@ version: 1.3.0
 categories: [release]
 ---
 
+Last week we released OpenSim 4.5 which includes the latest Moco release, 1.3.0. This release includes a new class for 
+modeling muscle paths with polynomial functions, new options for configuring MocoGoals, new transcription schemes, 
+updated examples, and plenty of bug fixes.
 
+The new class [FunctionBasedPath](https://simtk.org/api_docs/opensim/api_docs45/classOpenSim_1_1FunctionBasedPath.html) was introduced to enable computing muscle (and ligament) length, lengthening 
+speed, and moment arms using OpenSim [Function](https://simtk.org/api_docs/opensim/api_docs45/classOpenSim_1_1Function.html)s. Function-based muscle wrapping is an important feature of 
+state-of-the-art trajectory optimization codes used in biomechanics research, and we are excited to bring this 
+functionality to Moco. The [MultivariatePolynomialFunction](https://simtk.org/api_docs/opensim/api_docs45/classOpenSim_1_1MultivariatePolynomialFunction.html) class can now be used to define paths using smooth 
+polynomial functions that depend on multiple coordinates. We have also introduced the utility class 
+[PolynomialPathFitter](https://simtk.org/api_docs/opensim/api_docs45/classOpenSim_1_1PolynomialPathFitter.html) to speed the creation of these polynomial functions from models and experimental motion data. 
+Check out the new examples for [Matlab](https://github.com/opensim-org/opensim-core/blob/1f139756c68c9213573488da1c8b1fdf7e7a50e9/Bindings/Java/Matlab/examples/PolynomialPathFitter/examplePolynomialPathFitter.m) and [Python](https://github.com/opensim-org/opensim-core/blob/1f139756c68c9213573488da1c8b1fdf7e7a50e9/Bindings/Python/examples/PolynomialPathFitter/examplePolynomialPathFitter.py) included in the OpenSim 4.5 release to learn how to 
+convert your model to use FunctionBasedPaths. Finally, we've updated the models in exampleMocoTrack and 
+exampleMocoInverse to use FunctionBasedPaths, and made other minor changes to improve the quality of the muscle activity 
+solutions in these examples.
+
+Other new features have been added to make customizing problems in Moco more flexible. First, all MocoGoals now support 
+the methods [setDivideByDisplacement()](https://simtk.org/api_docs/opensim/api_docs45/classOpenSim_1_1MocoGoal.html#a30671341ce19eb723ba4b814c86a7a0b), [setDivideByMass()](https://simtk.org/api_docs/opensim/api_docs45/classOpenSim_1_1MocoGoal.html#a2b51b155881294975c23d9541e6981f3), and [setDivideByDuration()](https://simtk.org/api_docs/opensim/api_docs45/classOpenSim_1_1MocoGoal.html#ad3e90f67a4a069d116699521b1558a62). These methods 
+can be used to normalize the cost or endpoint constraint value in any MocoGoal by the model's total center-of-mass 
+displacement, the model's total mass, and the total duration of the MocoProblem. Second, reference ground reaction 
+forces can now be normalized when using [MocoContactTrackingGoal](https://simtk.org/api_docs/opensim/api_docs45/classOpenSim_1_1MocoContactTrackingGoal.html), which may be useful for scaling tracking cost 
+terms to similar magnitudes as other costs (e.g., control effort). Finally, foot-ground contact forces can now be 
+optimized (e.g., maximize contact impulse) via [MocoOutputGoal](https://simtk.org/api_docs/opensim/api_docs45/classOpenSim_1_1MocoOutputGoal.html) using the new Outputs 'sphere_force' and 
+'half_space_force' added to [SmoothSphereHalfSpaceForce](https://simtk.org/api_docs/opensim/api_docs45/classOpenSim_1_1SmoothSphereHalfSpaceForce.html).
+ 
+Lastly, we added new transcription schemes to MocoCasADiSolver based on state-of-the-art pseudospectral 
+collocation methods. These schemes solve the dynamics of a model with high accuracy for relatively few collocation 
+points, which can help improve convergence. These can be selected by passing "legendre-gauss-#" or 
+"legendre-gauss-radau-#" to set_transcription_scheme(), where "#" is the number of collocation points in each mesh 
+interval between 1 and 9. Note that this somewhat of an experimental feature, since these schemes currently cannot be 
+used with models with kinematic constraints. Support for kinematic constraints with pseudospectral collocation will 
+available soon in an upcoming API release.
+
+### Quick links
 
 Get Moco 1.3.0 by downloading the [OpenSim 4.5 release from SimTK](https://simtk.org/frs/?group_id=91).
 
-More details about this release can be found in the [CHANGELOG.md](https://github.com/opensim-org/opensim-core/blob/master/CHANGELOG.md) 
-and [CHANGELOG_MOCO.md](https://github.com/opensim-org/opensim-core/blob/master/CHANGELOG_MOCO.md) files.
+Learn more about the new features in the [OpenSim 4.5 release here](https://simtk-confluence.stanford.edu:8443/pages/viewpage.action?pageId=130187315).
+
+More details about this release can be found in the [CHANGELOG.md](https://github.com/opensim-org/opensim-core/blob/master/CHANGELOG.md) and [CHANGELOG_MOCO.md](https://github.com/opensim-org/opensim-core/blob/master/CHANGELOG_MOCO.md) files.
 
 [Read the Moco paper here](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008493). 
